@@ -53,7 +53,12 @@ function levelUp(){
       setTimeout(levelUp,1000)
     }
   }else{
-    h2.innerText=`Game Over! Press any key to Start.`
+    h2.innerHTML=`Game Over! Your score was <b>${level}</b> <br>Press any key to Start.`
+    document.querySelector('body').style.backgroundColor='red'
+    setTimeout(function(){
+      document.querySelector('body').style.backgroundColor='white'
+    })
+    reset()
   }
  }
 
@@ -70,4 +75,12 @@ function btnPress(){
 let allBtns=document.querySelectorAll('.btn')
 for(btn of allBtns){
   btn.addEventListener('click',btnPress)
+}
+
+function reset(){
+  started=false
+  level=0
+  userseq=[]
+  Gameseq=[]
+
 }
